@@ -63,5 +63,4 @@ $ ./example/base/a.out
 git仓库中提供了一个编译好的代码生成工具，在目录 `thirdpart/llvm/bin/clang-reflect` 下。如果你有需求（如定制生成的代码等），也可以选择自己编译。具体操作可以参考文档：[SetupLLVM](/doc/SetupLLVM.md),
 
 # 参考资料
-1. [把qt或ue4的反射系统裁剪出来是否可行？](https://mk.woa.com/q/256542)
-2. [CppCon 2018: Arvid Gerstmann “Building a C++ Reflection System in One Weekend Using Clang and LLVM”](https://www.youtube.com/watch?v=DUiUBt-fqEY)
+1. [CppCon 2018: Arvid Gerstmann “Building a C++ Reflection System in One Weekend Using Clang and LLVM”](https://www.youtube.com/watch?v=DUiUBt-fqEY)
