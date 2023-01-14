@@ -4,15 +4,15 @@ cppreflect是一个c++的运行时反射系统。原理类似QT的moc (Meta-Obje
 此外在反射系统之上，cppreflect还提供了一个基于msgpack的c++ rpc系统、以及将lua binding等功能。
 
 # Getting Started
-
-## 1. Download
 ```
 git clone https://github.com/adinosaur/cppreflect.git
 cd cppreflect
-git pull
+git pull # download clang-reflect from lfs
+python3 ./configure.py # build
 ```
 
-## 2. 在头文件中对Struct/Class标注
+# Usage
+## 1. 在头文件中对Struct/Class标注
 **example/base/vector3d.h:**
 ```c++
 #include "cppreflect/cppreflect.h"
@@ -32,19 +32,19 @@ struct STRUCT() Vector3D
 };
 ```
 
-## 3. 在源文件中包含自动生成的代码（.generated.h）
+## 2. 在源文件中包含自动生成的代码（.generated.h）
 **example/base/vector3d.cpp:**
 ```c++
 #include "example/base/vector3d.h"
 #include "example/base/vector3d.generated.h"
 ```
 
-## 4. 运行clang-reflect编译头文件
+## 3. 运行clang-reflect编译头文件
 ```bash
 thirdparty/llvm/bin/clang-reflect example/base/vector3d.h -p=. > example/base/vector3d.generated.h
 ```
 
-## 5. GetClass()获取元对象
+## 4. GetClass()获取元对象
 ```c++
 const cppreflect::Class* clazz = cppreflect::GetClass<Vector3D>();
 for (auto& field : clazz->GetFields())
@@ -61,7 +61,7 @@ for (auto& field : clazz->GetFields())
 #  Run example
 `configure.py`是一个轻量级的c++构建系统，cppreflect使用它来编译example目录下的c++代码：
 ```bash
-$ ./configure.py
+$ python3 ./configure.py
 $ ./example/base/a.out
 ```
 
