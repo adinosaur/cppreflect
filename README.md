@@ -4,7 +4,15 @@ cppreflect是一个c++的运行时反射系统。原理类似QT的moc (Meta-Obje
 此外在反射系统之上，cppreflect还提供了一个基于msgpack的c++ rpc系统、以及将lua binding等功能。
 
 # Getting Started
-## 1. 在头文件中对Struct/Class标注
+
+## 1. Download
+```
+git clone https://github.com/adinosaur/cppreflect.git
+cd cppreflect
+git pull
+```
+
+## 2. 在头文件中对Struct/Class标注
 **example/base/vector3d.h:**
 ```c++
 #include "cppreflect/cppreflect.h"
@@ -24,19 +32,19 @@ struct STRUCT() Vector3D
 };
 ```
 
-## 2. 在源文件中包含自动生成的代码（.generated.h）
+## 3. 在源文件中包含自动生成的代码（.generated.h）
 **example/base/vector3d.cpp:**
 ```c++
 #include "example/base/vector3d.h"
 #include "example/base/vector3d.generated.h"
 ```
 
-## 3. 运行clang-reflect编译头文件
+## 4. 运行clang-reflect编译头文件
 ```bash
 thirdparty/llvm/bin/clang-reflect example/base/vector3d.h -p=. > example/base/vector3d.generated.h
 ```
 
-## 4. GetClass()获取元对象
+## 5. GetClass()获取元对象
 ```c++
 const cppreflect::Class* clazz = cppreflect::GetClass<Vector3D>();
 for (auto& field : clazz->GetFields())
