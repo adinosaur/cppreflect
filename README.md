@@ -4,7 +4,7 @@ cppreflect是一个c++的运行时反射系统。原理类似QT的moc (Meta-Obje
 此外在反射系统之上，cppreflect还提供了一个基于msgpack的c++ rpc系统、以及将lua binding等功能。
 
 # Getting Started
-```
+```bash
 git clone https://github.com/adinosaur/cppreflect.git
 cd cppreflect
 git pull # download clang-reflect from lfs
